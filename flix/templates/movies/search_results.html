@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<main id="main">
+    <header id="movie-header">
+        <h1>Results relating to search of: {{ search_query.title() }}</h1>
+    </header>
+
+    {% for movie in movies %}
+    <movie id="movie">
+        <a href="{{movie.display_movie_url}}" >
+            <img id="logo" src="{{ url_for('static', filename='playbutton.jpg') }}" />
+        </a>
+        <h2>{{movie.title}}</h2>
+        <p>{{movie.description}}</p>
+        <div style="float:left">
+            {% for genre in movie.genres %}
+            <button class="btn-general" onclick="location.href='{{ genre_urls[genre.genre] }}'">{{ genre.genre }}</button>
+            {% endfor %}
+        </div>
+        {% if movie.id == show_reviews_for_movie %}
+        <div style="clear:both">
+            {% for review in movie.reviews %}
+                <p>• User {{review.username}} gave a rating of {{review.rating}} with the review: {{review.review_text}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <br/>
+        <br/>
+    </movie>
+    {% endfor %}
+</main>
+{% endblock %}

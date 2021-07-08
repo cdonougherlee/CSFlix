@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<main id="main">
+    <header id="movie-header">
+        <h1>{{ movie.title }} </h1>
+    </header>
+    <movie id="movie">
+        <a onclick="location.href='{{movie.watched_movie_url}}'" >
+            <img id="logo" src="{{ url_for('static', filename='playbutton.jpg') }}" alt="playbutton"/>
+        </a>
+        <p> Rating: <span style="color: Green">{{movie.rating}}</span>/10 ({{movie.votes}} votes) || Runtime: {{movie.runtime_minutes}} minutes || Year: {{movie.release_year}}</p>
+        <br/>
+        <p style="font-size: 20px">{{movie.description}}</p>
+        <br />
+        <label>Featuring: </label>
+        {% for actor in movie.actors %}
+        <span> {{actor.actor_full_name}},  </span>
+        {% endfor %}
+        <br/>
+        <label>Director: {{movie.director.director_full_name}}</label>
+        <br/>
+        <div style="float:left">
+            {% for genre in movie.genres %}
+            <button class="btn-general" onclick="location.href='{{ genre_urls[genre.genre] }}'">{{ genre.genre }}</button>
+            {% endfor %}
+        </div>
+        <div style="float:right">
+            <button class="btn-general" onclick="location.href='{{ movie.add_review_url }}'">Review</button>
+        </div>
+        <br/>
+        <br/>
+        <h3>Reviews:</h3>
+        <div style="clear:both">
+            {% for review in movie.reviews %}
+            <p>• User {{review.username}} gave a rating of {{review.rating}} with the review: {{review.review_text}}</p>
+            {% endfor %}
+        </div>
+    </movie>
+</main>
+{% endblock %}

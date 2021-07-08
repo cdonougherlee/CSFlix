@@ -1,0 +1,18 @@
+{% extends 'layout.html' %} {% block content %}
+<main id="main">
+  <h1>
+    Welcome to CSFlix heres some words introing it
+  </h1>
+  <br/>
+  <h3>Feel free to browse and search movies!</h3>
+  <br/>
+  <p>Note that to watch movies, get recommendations, see your stats or leave a review, you must have and be signed into a CSFlix account</p>
+  <a class="btn-special" href="{{ url_for('authentication_bp.register') }}">Register here!</a>
+  <br/>
+  <p>Already have an account?</p>
+  <a class="btn-special" href="{{ url_for('authentication_bp.login') }}">Login here!</a>
+  <p style="text-align: right; font-style: italic;">
+    CSFlix by Cameron
+  </p>
+</main>
+{% endblock %}

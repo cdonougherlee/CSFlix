@@ -1,0 +1,34 @@
+<aside id="sidebar">
+    {% if 'username' in session %}
+    <header>
+        <h1>Recommended movies based on your watched movies</h1>
+    </header>
+    {% for movie in recommendations %}
+        <div id="movie-container">
+            <a onclick="location.href='{{movie.movie_url}}'">
+                <h1 style="text-decoration: underline;">{{ movie.title }}</h1>
+            </a>
+            <br/>
+            <div id="movie-description">
+                <p>{{ movie.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% else %}
+    <header>
+        <h1>Popular on CSFlix</h1>
+    </header>
+    {% for movie in selected_movies %}
+        <div id="movie-container">
+            <a onclick="location.href='{{movie.movie_url}}'">
+                <h1 style="text-decoration: underline;">{{ movie.title }}</h1>
+            </a>
+            <br/>
+            <div id="movie-description">
+                <p>{{ movie.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+</aside>

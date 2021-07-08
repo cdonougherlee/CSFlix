@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<main id="main">
+    <h1>User stats for {{user.user_name}}</h1>
+    <br/>
+    <p>You have watched <strong>{{user.total_movies_watched()}}</strong> movies, totaling to
+        <strong>{{user.time_spent_watching_movies_minutes}}</strong> minutes of watchtime!</p>
+    <br/>
+    <div style="clear:both">
+        <h3>Reviews made:</h3>
+        {% for review in user.reviews %}
+            <p>• For {{review.movie.title}} you gave a rating of {{review.rating}}/10 with the review: <br/>
+                {{review.review_text}}</p>
+        {% endfor %}
+    </div>
+    <br/>
+    <div style="clear:both">
+        <h3>Movies watched:</h3>
+        {% for movie in user.watched_movies %}
+            <p>- {{movie.title}}</p>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

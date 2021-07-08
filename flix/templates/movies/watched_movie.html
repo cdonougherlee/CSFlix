@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<main id="main">
+    <center>
+    <p> You have watched movie: {{movie.title}} <br/>
+        Your stats and recommendations have been updated.
+    </p>
+    <p>Did you enjoy this movie?<br/> Tell us what you think with a review!</p>
+        <div style="float:center">
+            <button class="btn-special" onclick="location.href='{{ movie.add_review_url }}'">Review</button>
+        </div>
+    </center>
+</main>
+{% endblock %}
