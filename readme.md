@@ -6,11 +6,6 @@
 A web application that demonstrates use of Python's Flask framework. The application makes use of libraries such as the Jinja templating library and WTForms. Architectural design patterns and principles including Repository, Dependency Inversion and Single Responsibility have been used to design the application. The application uses Flask Blueprints to maintain a separation of concerns between application functions. Testing includes unit and end-to-end testing using the pytest tool. 
 
 
-## Somewhere
-
-I didn't make this site responsive so full screen viewing is recommended.
-
-
 ## Steps to install and run the web application
 
 **Assumptions is that Python3 and Git bash are both downloaded and installed on your computer**
@@ -20,7 +15,7 @@ Step 1) First open the command prompt, found on Windows by typing cmd in the win
 Step 2) Navigate to the directory you wish to save the web app's files to. You can navigate directories by typing cd "Directory_name" to move to a desired
 directory (e.g. cd Desktop). To go back a directory type cd ..
 
-Step 3) Back in the Assignment-2 repository in GitHub (https://github.com/camdeluxe/Assignment-2), open the green Code tab, then copy the HTTPS link.
+Step 3) Back in the Assignment-2 repository in GitHub (https://github.com/cdonougherlee/CSFlix), open the green Code tab, then copy the HTTPS link.
 
 Step 4) Now in the command prompt, in the desired directory (e.g. C:\Users\camer\Desktop), clone from the GitHub repository using a Git Bash shell by typing as follows:
 
@@ -64,6 +59,7 @@ You will now see that the web app is running on your computer's local host. This
 
 If web app seems to be styled incorrectly, it may be that it is the web browser that is caching the stylesheet.
 If you're using Chrome, you can disable caching: click F12, network, disable cache.  
+I didn't make this site responsive so full screen viewing is recommended.
 
 
 ## Configuration
