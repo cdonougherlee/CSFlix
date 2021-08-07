@@ -6,8 +6,8 @@ from flix import create_app
 from flix.adapters import memory_repository
 from flix.adapters.memory_repository import MemoryRepository
 
-TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'camer', 'Desktop', 'A place to save stuff', 'Compsci235',
-                              'Assignment-2',
+TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'camer', 'Desktop', 'Coding projects', 'CSFlix',
+                              'CSFlix',
                               'tests', 'data')
 
 

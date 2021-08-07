@@ -15,7 +15,7 @@ Step 1) First open the command prompt, found on Windows by typing cmd in the win
 Step 2) Navigate to the directory you wish to save the web app's files to. You can navigate directories by typing cd "Directory_name" to move to a desired
 directory (e.g. cd Desktop). To go back a directory type cd ..
 
-Step 3) Back in the Assignment-2 repository in GitHub (https://github.com/cdonougherlee/CSFlix), open the green Code tab, then copy the HTTPS link.
+Step 3) Back in the CSFlix repository in GitHub (https://github.com/cdonougherlee/CSFlix), open the green Code tab, then copy the HTTPS link.
 
 Step 4) Now in the command prompt, in the desired directory (e.g. C:\Users\camer\Desktop), clone from the GitHub repository using a Git Bash shell by typing as follows:
 
@@ -26,11 +26,11 @@ Then with the copied HTTPS link:
 ```shell
 $ git clone HTTPS-link
 ```
-e.g. $ git clone https://github.com/camdeluxe/Assignment-2.git
+e.g. $ git clone https://github.com/camdeluxe/CSFlix.git
 
-Step 5) Switch to the assignment 2 directory with all the files:
+Step 5) Switch to the CSFlix directory with all the files:
 ```shell
-$ cd Assignment-2
+$ cd CSFlix
 ``` 
 Step 6) Now to create a virtual environment and install requirements, in the command prompt type the following:
 ```shell
@@ -39,11 +39,11 @@ $ venv\Scripts\activate
 $ pip install -r requirements.txt
 ```
 
-When using PyCharm, set the virtual environment using 'File'->'Settings' and select 'Project:Assignment-2' from the left menu. Select 'Project Interpreter', click on the gearwheel button and select 'Add'. Click the 'Existing environment' radio button to select the virtual environment. 
+When using PyCharm, set the virtual environment using 'File'->'Settings' and select 'Project:CSFlix' from the left menu. Select 'Project Interpreter', click on the gearwheel button and select 'Add'. Click the 'Existing environment' radio button to select the virtual environment. 
 
 ## Execution from virtual environment
 
-From the *Assignment-2* directory, and within the activated virtual environment (see *venv\Scripts\activate* above):
+From the *CSFlix* directory, and within the activated virtual environment (see *venv\Scripts\activate* above):
 
 **Running the application**
 
@@ -58,13 +58,12 @@ You will now see that the web app is running on your computer's local host. This
 --Please note--
 
 If web app seems to be styled incorrectly, it may be that it is the web browser that is caching the stylesheet.
-If you're using Chrome, you can disable caching: click F12, network, disable cache.  
-I didn't make this site responsive so full screen viewing is recommended.
+If you're using Chrome, you can disable caching: click F12, network, disable cache.
 
 
 ## Configuration
 
-The *Assignment-2/.env* file contains variable settings. They are set with appropriate values.
+The *CSFlix.env* file contains variable settings. They are set with appropriate values.
 
 * `FLASK_APP`: Entry point of the application (should always be `wsgi.py`).
 * `FLASK_ENV`: The environment in which to run the application (either `development` or `production`).
@@ -75,15 +74,15 @@ The *Assignment-2/.env* file contains variable settings. They are set with appro
 
 ## Testing from virtual environment
 
-Testing requires that file *Assignment-2/tests/conftest.py* be edited to set the value of `TEST_DATA_PATH`. You should set this to the absolute path of the *Assignment-2/tests/data* directory. 
+Testing requires that file *CSFlix/tests/conftest.py* be edited to set the value of `TEST_DATA_PATH`. You should set this to the absolute path of the *CSFlix/tests/data* directory. 
 
 E.g. 
 
-`TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'camer', 'Desktop', 'Assignment-2', 'tests', 'data')`
+`TEST_DATA_PATH = os.path.join('C:', os.sep, 'Users', 'camer', 'Desktop', 'CSFlix', 'tests', 'data')`
 
 assigns TEST_DATA_PATH with the following value (the use of os.path.join and os.sep ensures use of the correct platform path separator):
 
-`C:\Users\camer\Desktop\A place to save stuff\Assignment-2\tests\data`
+`C:\Users\camer\Desktop\A place to save stuff\CSFlix\tests\data`
 
 **Running all tests**
 
