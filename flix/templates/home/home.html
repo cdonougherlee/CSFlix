@@ -1,25 +1,33 @@
 {% extends 'layout.html' %} {% block content %}
 <main>
-  <h1>
-    Welcome to CSFlix heres some words introing it
+  <h1 id="home-header">
+    Welcome to CSFlix!
   </h1>
+	<p class="home-intro">
+		Watch the best and most exclusive movies
+	</p>
+	<p class="home-intro home-intro-red">
+		from the comfort of your home
+	</p>
   <div id="slideshow-container">
+			<h2 class="home-title">Featured movies this week:</h2>
 		  <div class="mySlides fade">
-		    <img id="slide" src="{{ url_for('static', filename='lottie.jpg') }}" alt="playbutton"/>
+		    <img id="slide" src="{{ url_for('static', filename='hungergames.jpg') }}" alt="Hungergames poster"/>
 		  </div>
 		  <div class="mySlides fade">
-		    <img id="slide" src="{{ url_for('static', filename='playbutton.jpg') }}" alt="playbutton"/>
+		    <img id="slide" src="{{ url_for('static', filename='Gardians.jpg') }}" alt="Gardians of the Galaxy poster"/>
 		  </div>
 		  <div class="mySlides fade">
-		    <img id="slide" src="{{ url_for('static', filename='lottie.jpg') }}" alt="playbutton"/>
+		    <img id="slide" src="{{ url_for('static', filename='Django.jpg') }}" alt="Django poster"/>
 		  </div>
 			<br>
 		</div>
   <div class="clr"></div>
-  <a class="btn-special" href="{{ url_for('authentication_bp.register') }}">Register here!</a>
+	<h2 class="home-intro home-intro-account">Ready to go?</h2>
+  <a class="account-btn" href="{{ url_for('authentication_bp.register') }}">Register here!</a>
   <br/>
-  <p>Already have an account?</p>
-  <a class="btn-special" href="{{ url_for('authentication_bp.login') }}">Login here!</a>
+  <h2 class="home-intro home-intro-account">Already have an account:</h2>
+  <a class="account-btn" href="{{ url_for('authentication_bp.login') }}">Login here!</a>
   <p style="text-align: right; font-style: italic;">
     CSFlix by Cameron
   </p>
