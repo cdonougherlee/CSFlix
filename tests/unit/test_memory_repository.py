@@ -43,7 +43,7 @@ def test_repository_can_retrieve_movie(in_memory_repo):
     assert movie.title == "Guardians of the Galaxy"
     assert movie.genres == [Genre("Action"), Genre("Adventure"), Genre("Sci-Fi")]
     assert movie.description == "A group of intergalactic criminals are forced to work together to stop a fanatical " \
-                                "warrior from taking control of the universe. "
+                                "warrior from taking control of the universe."
     assert movie.director == Director("James Gunn")
     assert movie.actors == [Actor("Chris Pratt"), Actor("Vin Diesel"), Actor("Bradley Cooper"), Actor("Zoe Saldana")]
     assert movie.release_year == 2014

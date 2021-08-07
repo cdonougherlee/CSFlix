@@ -96,7 +96,7 @@ def test_can_get_movie(in_memory_repo):
     assert movie_as_dict['title'] == "Guardians of the Galaxy"
     assert movie_as_dict[
                'description'] == 'A group of intergalactic criminals are forced to work together to stop a fanatical ' \
-                                 'warrior from taking control of the universe. '
+                                 'warrior from taking control of the universe.'
     assert movie_as_dict['director'] == Director("James Gunn")
     actors = movie_as_dict['actors']
     assert Actor("Chris Pratt") in actors
