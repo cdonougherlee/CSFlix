@@ -1,12 +1,21 @@
 {% extends 'layout.html' %} {% block content %}
-<main id="main">
+<main>
   <h1>
     Welcome to CSFlix heres some words introing it
   </h1>
-  <br/>
-  <h3>Feel free to browse and search movies!</h3>
-  <br/>
-  <p>Note that to watch movies, get recommendations, see your stats or leave a review, you must have and be signed into a CSFlix account</p>
+  <div id="slideshow-container">
+		  <div class="mySlides fade">
+		    <img id="slide" src="{{ url_for('static', filename='lottie.jpg') }}" alt="playbutton"/>
+		  </div>
+		  <div class="mySlides fade">
+		    <img id="slide" src="{{ url_for('static', filename='playbutton.jpg') }}" alt="playbutton"/>
+		  </div>
+		  <div class="mySlides fade">
+		    <img id="slide" src="{{ url_for('static', filename='lottie.jpg') }}" alt="playbutton"/>
+		  </div>
+			<br>
+		</div>
+  <div class="clr"></div>
   <a class="btn-special" href="{{ url_for('authentication_bp.register') }}">Register here!</a>
   <br/>
   <p>Already have an account?</p>

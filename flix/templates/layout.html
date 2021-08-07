@@ -4,43 +4,107 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>CSFlix</title>
-
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/main.css') }}"
-      type="text/css"
-    />
-	
-	<link
-      rel="bookmark"
-	  type="image/x-icon"
-      href="lottie.JPG"
-    />
-	
-	<link
-      rel="icon"
-      href="lottie.JPG"
-    />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css" />
+      <link rel="bookmark" type="image/x-icon" href="lottie.JPG"/>
+      <link rel="icon" href="lottie.JPG"/>
   </head>
 
-  <body>
-    <div id="body">
-      <!-- Include navigation partial. -->
-      {% include 'navigation.html' %}
+  <body class="wrapper">
+    <!-- Include navigation partial. -->
+    <nav id="navbar">
+      <img id="logo" src="{{ url_for('static', filename='lottie.JPG') }}" />
 
-      <div id="content-2">
-        <!-- Include header partial. -->
-        {% include 'header.html' %}
+      <h2 id="nav-header">
+        {% if 'username' in session %} Hello, {{ session['username'] }} {%
+        endif %}
+      </h2>
 
-        <div id="container">
-          <!-- Main content block to be supplied by page. -->
-          {% block content %} {% endblock %}
-
-          <!-- Include sidebar partial. -->
-          {% include 'sidebar.html' %}
-        </div>
-        
+      <div>
+        <a class="nav-link" href="{{ url_for('home_bp.home') }}">Home</a>
+        <a class="nav-link" href="{{ url_for('authentication_bp.register') }}">Register</a>
+        <a class="nav-link" href="{{ url_for('authentication_bp.login') }}">Login</a>
+        <a class="nav-link" href="{{ url_for('authentication_bp.logout') }}">Logout</a>
+        <a class="nav-link" href="{{ url_for('stats_bp.stats') }}">User stats</a>
       </div>
+
+      <br/>
+
+      <div>
+        <a class="nav-link" href="{{ url_for('movies_bp.movies_by_title') }}">Browse movies</a>
+        <a class="nav-link" href="{{ url_for('movies_bp.browse_genres') }}">Browse genres</a>
+      </div>
+
+      <br/>
+
+      <div>
+        <a class="nav-link" href="{{ url_for('search_bp.search_by_title') }}">Search by title</a>
+        <a class="nav-link" href="{{ url_for('search_bp.search_by_director') }}">Search by director</a>
+        <a class="nav-link" href="{{ url_for('search_bp.search_by_genre') }}">Search by genre</a>
+        <a class="nav-link" href="{{ url_for('search_bp.search_by_actor') }}">Search by actor</a>
+      </div>
+    </nav>
+
+
+
+    <!-- Include header partial. -->
+
+
+    <div>
+      <!-- Main content block to be supplied by page. -->
+      {% block content %} {% endblock %}
     </div>
+
+    <!-- Include sidebar partial. -->
+    <aside id="sidebar">
+      {% if 'username' in session %}
+          <header>
+              <h1>Recommended movies based on your watched movies</h1>
+          </header>
+
+          {% for movie in recommendations %}
+              <div id="movie-container">
+                  <a onclick="location.href='{{movie.movie_url}}'">
+                      <h1 style="text-decoration: underline;">{{ movie.title }}</h1>
+                  </a>
+                  <br/>
+                  <div id="movie-description">
+                      <p>{{ movie.description }}</p>
+                  </div>
+              </div>
+          {% endfor %}
+      {% else %}
+          <header>
+              <h1>Popular on CSFlix</h1>
+          </header>
+          {% for movie in selected_movies %}
+              <div id="movie-container">
+                  <a onclick="location.href='{{movie.movie_url}}'">
+                      <h1 style="text-decoration: underline;">{{ movie.title }}</h1>
+                  </a>
+                  <br/>
+                  <div id="movie-description">
+                      <p>{{ movie.description }}</p>
+                  </div>
+              </div>
+          {% endfor %}
+      {% endif %}
+    </aside>
+
+  	<script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}
+          slides[slideIndex-1].style.display = "block";
+          setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+    </script>
   </body>
 </html>
