@@ -2,33 +2,41 @@
 
 {% block content %}
 
-<main id="main">
-    <header id="movie-header">
+<main id="main-movies">
+    <header id="search-header">
         <h1>Results relating to search of: {{ search_query.title() }}</h1>
     </header>
 
-    {% for movie in movies %}
-    <movie id="movie">
-        <a href="{{movie.display_movie_url}}" >
-            <img id="logo" src="{{ url_for('static', filename='playbutton.jpg') }}" />
-        </a>
-        <h2>{{movie.title}}</h2>
-        <p>{{movie.description}}</p>
-        <div style="float:left">
-            {% for genre in movie.genres %}
-            <button class="btn-general" onclick="location.href='{{ genre_urls[genre.genre] }}'">{{ genre.genre }}</button>
+    <div class="movies-wrapper">
+            {% for movie in movies %}
+            <movie class="movie">
+                <a class="movie-thumbnail" href="{{movie.display_movie_url}}" >
+                    <img class="thumbnail" src="{{ url_for('static', filename='playbutton.jpg') }}" />
+                </a>
+                <h2>{{movie.title}}</h2>
+                <p>{{movie.description}}</p>
+                <div class="movie-btns">
+                    <div>
+                        {% for genre in movie.genres %}
+                        <button class="page-btn" onclick="location.href='{{ genre_urls[genre.genre] }}'">{{ genre.genre }}</button>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        {% if movie.reviews|length > 0 and movie.id != show_reviews_for_review %}
+                            <button class="page-btn right-float-btn" onclick="location.href='{{ movie.view_reviews_url }}'">{{ movie.reviews|length }} reviews</button>
+                        {% endif %}
+                        <button class="page-btn right-float-btn" onclick="location.href='{{ movie.add_review_url }}'">Review</button>
+                    </div>
+                    {% if movie.id == show_reviews_for_movie %}
+                    <div>
+                        {% for review in movie.reviews %}
+                            <p>• User {{review.username}} gave a rating of {{review.rating}} with the review: {{review.review_text}}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </movie>
             {% endfor %}
         </div>
-        {% if movie.id == show_reviews_for_movie %}
-        <div style="clear:both">
-            {% for review in movie.reviews %}
-                <p>• User {{review.username}} gave a rating of {{review.rating}} with the review: {{review.review_text}}</p>
-            {% endfor %}
-        </div>
-        {% endif %}
-        <br/>
-        <br/>
-    </movie>
-    {% endfor %}
 </main>
 {% endblock %}

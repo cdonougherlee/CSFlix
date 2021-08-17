@@ -107,15 +107,32 @@ h1 {
     color: #fff;
 }
 
-.btn-general {
+.page-btn {
     background-color: #8B0000;
     color: white;
-    border: none;
+    border: 2px #8B0000 solid;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.page-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.page-btn-disabled {
+    background-color: #8B0000;
+    color: black;
+    border: 2px #8B0000 solid;
     border-radius: 8px;
     display: inline-block;
     padding: 10px;
     margin: 5px;
-    float:left;
+}
+
+.right-float-btn {
+    float:right;
 }
 
 .btn-special {
@@ -134,20 +151,6 @@ h1 {
     color: #fff;
 }
 
-.btn-general-disabled {
-    background-color: #8B0000;
-    border: none;
-    border-radius: 8px;
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-    float:left;
-}
-
-.btn-general:hover {
-    background-color: #8B0000;
-    color: black;
-}
 
 .textarea {
     width: 100%;
@@ -192,8 +195,13 @@ main {
   padding: 30px;
 }
 
-#logo {
+#main-movies{
+    padding: 0px;
+}
+
+.thumbnail {
   width: 200px;
+
 }
 
 #thumbnail {
@@ -208,20 +216,66 @@ main {
     padding: 20px;
 }
 
+
+#genre-title{
+    text-align: center;
+}
+
+.movies-wrapper{
+    display:grid;
+    background:#eee;
+}
+
+.movies-wrapper > movie:nth-child(odd){
+    background:#ddd;
+}
+
+
+#top-nav{
+    display:grid;
+    grid-template-columns: 30% 40% 30%;
+    padding: 30px;
+}
+.top-nav-nested {
+    display:grid;
+    justify-items: start;
+}
+
+.right-btns {
+    justify-items: end;
+}
+
+#bottom-nav{
+    margin: 30px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.movie {
+    padding: 30px;
+    display:grid;
+}
+
+.movie-thumbnail{
+    margin:auto;
+}
+
+.movie-btns {
+    display:grid;
+    grid-template-columns: 75% 25%;
+}
+
+
 #movie-header {
     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-#movie {
-    clear:both;
-    margin-top: 200px;
-    margin-bottom:100px;
-}
-
-#movie-footer {
-    font-size: 32px;
+#search-header{
+    text-align: center;
+    padding: 30px;
+    line-height: 2em;
 }
 
 #movie-container {
@@ -255,17 +309,17 @@ input[type='password'],
 
 input[type='submit'] {
     width: 100%;
-     background-color: #7532cd;
-     color: white;
+     background-color: #8B0000;
+    color: white;
+    border: 2px #8B0000 solid;
      padding: 14px 20px;
      margin: 8px 0;
-     border: none;
      border-radius: 4px;
      cursor: pointer;
 }
 
 input[type='submit']:hover {
-    background-color: #8acd32;
+    background-color: white;
     color: black;
 }
 

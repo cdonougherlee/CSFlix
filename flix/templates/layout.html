@@ -12,7 +12,7 @@
   <body class="wrapper">
     <!-- Include navigation partial. -->
     <nav id="navbar">
-      <img id="logo" src="{{ url_for('static', filename='lottie.JPG') }}" />
+      <img class="thumbnail" src="{{ url_for('static', filename='lottie.JPG') }}" />
 
       <h2 id="nav-header">
         {% if 'username' in session %} Hello, {{ session['username'] }} {%
@@ -103,7 +103,7 @@
           slideIndex++;
           if (slideIndex > slides.length) {slideIndex = 1}
           slides[slideIndex-1].style.display = "block";
-          setTimeout(showSlides, 4500); // Change image every 4.5 seconds
+          setTimeout(showSlides, 3500); // Change image every 3.5 seconds
         }
     </script>
   </body>

@@ -3,7 +3,7 @@
 {% block content %}
 <main id="main">
 <div>
-    <h3>Browse by genres</h3>
+    <h3 id="genre-title">Browse by genres</h3>
     {% for key in genre_urls %}
       <a class="genre-btn" href="{{ genre_urls[key] }}">{{ key }}</a>
     {% endfor %}
