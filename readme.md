@@ -12,8 +12,7 @@ A web application that demonstrates use of Python's Flask framework. The applica
 
 Step 1) First open the command prompt, found on Windows by typing cmd in the windows search bar.
 
-Step 2) Navigate to the directory you wish to save the web app's files to. You can navigate directories by typing cd "Directory_name" to move to a desired
-directory (e.g. cd Desktop). To go back a directory type cd ..
+Step 2) Navigate to the directory you wish to save the web app's files to. You can navigate directories by typing 'cd "Directory_name"' to move to a desired directory (e.g. cd Desktop). To go back a directory type 'cd ..'.
 
 Step 3) Back in the CSFlix repository in GitHub (https://github.com/cdonougherlee/CSFlix), open the green Code tab, then copy the HTTPS link.
 
@@ -26,7 +25,7 @@ Then with the copied HTTPS link:
 ```shell
 $ git clone HTTPS-link
 ```
-e.g. $ git clone https://github.com/camdeluxe/CSFlix.git
+e.g. $ git clone https://github.com/cdonougherlee/CSFlix.git
 
 Step 5) Switch to the CSFlix directory with all the files:
 ```shell
